@@ -3,102 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Equinox Advisory | Institutional Global Funding</title>
+    <title>Equinox Advisory | Precision in Every Decision</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --gold: #c5a059;
-            --gold-light: #e0bc7a;
-            --dark-base: #0a0b0d;
-            --dark-card: #14161a;
-            --text-main: #ffffff;
-            --text-muted: #94a3b8;
-            --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            --gold-dark: #b08d4a;
+            --bg-deep: #0a0b0d;
+            --bg-card: #14161a;
+            --text-white: #ffffff;
+            --text-grey: #94a3b8;
+            --border: #222;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: var(--dark-base); color: var(--text-main); font-family: 'Inter', sans-serif; line-height: 1.6; overflow-x: hidden; }
-
-        /* Typography */
-        h1, h2, .logo { font-family: 'Cinzel', serif; }
-        .gold-gradient { background: linear-gradient(to right, #c5a059, #f9f295, #c5a059); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-
+        body { background: var(--bg-deep); color: var(--text-white); font-family: 'Inter', sans-serif; line-height: 1.6; }
+        
         /* Navigation */
         nav {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 25px 8%; background: rgba(10, 11, 13, 0.95);
-            position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(197, 160, 89, 0.2);
-            backdrop-filter: blur(10px);
+            padding: 25px 8%; background: rgba(10, 11, 13, 0.98);
+            position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border);
         }
-        .logo { font-size: 1.4rem; font-weight: 700; letter-spacing: 2px; }
+        .logo { font-size: 1.4rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; }
         .logo span { color: var(--gold); }
-        .nav-links { display: flex; list-style: none; gap: 35px; }
-        .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; transition: var(--transition); cursor: pointer; }
-        .nav-links a:hover { color: var(--gold); letter-spacing: 1px; }
+        .nav-links { display: flex; list-style: none; gap: 30px; }
+        .nav-links a { color: var(--text-grey); text-decoration: none; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; transition: 0.3s; cursor: pointer; }
+        .nav-links a:hover { color: var(--gold); }
 
-        /* Page Management */
-        .page { display: none; animation: slideUp 0.8s ease; }
-        .page.active { display: block; }
-        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        /* Section Universal Styles */
+        section { padding: 120px 10%; border-bottom: 1px solid var(--border); }
+        .tag { color: var(--gold); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; display: block; margin-bottom: 15px; }
+        .title { font-size: 3rem; margin-bottom: 40px; font-weight: 800; line-height: 1.2; }
+        .subtitle { color: var(--text-grey); font-size: 1.1rem; max-width: 800px; margin-bottom: 50px; }
 
-        /* Hero */
+        /* --- SECTION 1: HERO --- */
         .hero {
-            height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
-            text-align: center; background: radial-gradient(circle at center, rgba(197, 160, 89, 0.05) 0%, transparent 70%);
-            padding: 0 10%;
+            height: 95vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; background: radial-gradient(circle at center, rgba(197, 160, 89, 0.08) 0%, transparent 70%);
         }
-        .hero-line { width: 100px; height: 2px; background: var(--gold); margin-bottom: 20px; }
-        .hero h1 { font-size: 4.5rem; margin-bottom: 20px; line-height: 1.1; }
-        .hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 800px; margin-bottom: 40px; font-weight: 300; }
-        
-        .btn { padding: 18px 40px; background: var(--gold); color: #000; text-decoration: none; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; border-radius: 0; transition: var(--transition); border: 1px solid var(--gold); cursor: pointer; }
-        .btn:hover { background: transparent; color: var(--gold); transform: scale(1.05); }
+        .hero h1 { font-size: 4.5rem; color: var(--gold); margin-bottom: 20px; }
+        .hero-btn { 
+            padding: 20px 45px; background: var(--gold); color: #000; text-decoration: none; 
+            font-weight: 800; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s;
+        }
+        .hero-btn:hover { background: var(--text-white); transform: translateY(-5px); }
 
-        /* Section Styling */
-        section { padding: 120px 10%; }
-        .section-tag { color: var(--gold); font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; display: block; margin-bottom: 15px; }
-        .section-title { font-size: 3rem; margin-bottom: 40px; }
+        /* --- SECTION 2: METRICS (THE NUMBERS) --- */
+        .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
+        .metric-card h2 { font-size: 3.5rem; color: var(--gold); margin-bottom: 5px; }
+        .metric-card p { color: var(--text-grey); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
 
-        /* Global Reach Map Section */
-        .map-section { background: #0f1115; text-align: center; }
-        .map-container { position: relative; margin-top: 50px; background: url('https://www.transparenttextures.com/patterns/world-map.png'); background-size: contain; background-repeat: no-repeat; height: 400px; opacity: 0.3; }
-        .hotspot { position: absolute; width: 10px; height: 10px; background: var(--gold); border-radius: 50%; box-shadow: 0 0 15px var(--gold); }
-
-        /* Cards Layout */
+        /* --- SECTION 3: CORE SERVICES --- */
         .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .card { background: var(--dark-card); padding: 50px; border: 1px solid #222; transition: var(--transition); position: relative; overflow: hidden; }
-        .card::before { content: ""; position: absolute; top: 0; left: -100%; width: 100%; height: 2px; background: var(--gold); transition: var(--transition); }
-        .card:hover::before { left: 0; }
-        .card:hover { border-color: rgba(197, 160, 89, 0.4); transform: translateY(-5px); }
+        .card { background: var(--bg-card); padding: 50px; transition: 0.4s; border: 1px solid transparent; }
+        .card:hover { border-color: var(--gold); transform: translateY(-10px); }
         .card i { font-size: 2.5rem; color: var(--gold); margin-bottom: 25px; }
-        .card h3 { margin-bottom: 15px; font-family: 'Cinzel', serif; }
+        .card h3 { margin-bottom: 15px; font-size: 1.5rem; }
 
-        /* Risk & Advisory Section (Expertise) */
-        .expertise-container { display: flex; gap: 60px; align-items: center; }
-        .expertise-text { flex: 1; }
-        .expertise-image { flex: 1; height: 500px; background: url('https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2070'); background-size: cover; border: 10px solid var(--dark-card); }
+        /* --- SECTION 4: GLOBAL REACH --- */
+        .reach-box { background: #0f1115; padding: 60px; border-left: 5px solid var(--gold); }
+        .reach-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 30px; }
+        .reach-item h4 { color: var(--gold); margin-bottom: 10px; }
 
-        /* Process Steps */
-        .step-row { display: flex; justify-content: space-between; border-top: 1px solid #222; padding: 40px 0; }
-        .step-num { color: var(--gold); font-weight: 800; font-size: 1.2rem; margin-right: 30px; }
-        .step-content { flex: 1; }
-        .step-content h4 { font-family: 'Cinzel', serif; font-size: 1.5rem; margin-bottom: 10px; }
+        /* --- SECTION 5: THE PROCESS (METHODOLOGY) --- */
+        .process-step { display: flex; align-items: flex-start; margin-bottom: 40px; padding-bottom: 40px; border-bottom: 1px solid #222; }
+        .step-num { font-size: 2.5rem; font-weight: 900; color: rgba(197, 160, 89, 0.3); margin-right: 40px; }
+        .step-body h4 { font-size: 1.6rem; margin-bottom: 10px; }
 
-        /* FAQ Section */
-        .faq-item { background: var(--dark-card); margin-bottom: 10px; padding: 20px; cursor: pointer; border: 1px solid #222; }
-        .faq-question { display: flex; justify-content: space-between; align-items: center; font-weight: 600; }
+        /* --- SECTION 6: RISK & ADVISORY --- */
+        .dark-section { background: #07080a; }
+        .flex-box { display: flex; gap: 60px; align-items: center; }
+        .flex-text { flex: 1; }
+        .feature-list { list-style: none; margin-top: 30px; }
+        .feature-list li { margin-bottom: 15px; display: flex; align-items: center; }
+        .feature-list i { color: var(--gold); margin-right: 15px; }
+
+        /* --- SECTION 7: INDUSTRIES --- */
+        .industry-tags { display: flex; flex-wrap: wrap; gap: 15px; }
+        .tag-box { padding: 15px 30px; background: var(--bg-card); border: 1px solid #333; font-weight: 600; transition: 0.3s; }
+        .tag-box:hover { background: var(--gold); color: #000; }
+
+        /* --- SECTION 8: FAQ --- */
+        .faq-grid { max-width: 900px; margin: 0 auto; }
+        .faq-item { background: var(--bg-card); padding: 25px; margin-bottom: 15px; cursor: pointer; }
+        .faq-item h5 { font-size: 1.1rem; display: flex; justify-content: space-between; }
+
+        /* --- SECTION 9: CONTACT --- */
+        .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px; }
+        .contact-info div { margin-bottom: 30px; }
+        .contact-info i { color: var(--gold); font-size: 1.5rem; margin-right: 15px; }
+        .contact-form input, .contact-form textarea { width: 100%; padding: 15px; background: #000; border: 1px solid #333; color: #fff; margin-bottom: 20px; outline: none; }
+        .contact-form input:focus { border-color: var(--gold); }
 
         /* Footer */
-        footer { padding: 100px 10% 40px; background: #050505; border-top: 1px solid #111; }
-        .footer-main { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 80px; margin-bottom: 60px; }
-        .footer-logo { font-size: 2rem; margin-bottom: 20px; }
-        .footer-bottom { border-top: 1px solid #111; padding-top: 30px; display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-muted); }
+        footer { padding: 60px 10%; background: #050505; text-align: center; border-top: 1px solid #111; }
+        .footer-seo { font-size: 0.75rem; color: #444; margin-top: 40px; text-transform: uppercase; letter-spacing: 1px; }
 
         @media (max-width: 968px) {
-            .hero h1 { font-size: 2.8rem; }
-            .expertise-container, .footer-main { flex-direction: column; }
-            .nav-links { display: none; }
+            .metrics-grid, .contact-grid, .reach-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 3rem; }
+            .flex-box { flex-direction: column; }
         }
     </style>
 </head>
@@ -107,223 +112,197 @@
     <nav>
         <div class="logo">Equinox <span>Advisory</span></div>
         <ul class="nav-links">
-            <li><a onclick="showPage('home')">Overview</a></li>
-            <li><a onclick="showPage('about')">The Firm</a></li>
-            <li><a onclick="showPage('services')">Capital Solutions</a></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#process">Process</a></li>
+            <li><a href="#contact">Inquiry</a></li>
         </ul>
     </nav>
 
-    <main id="home" class="page active">
-        <section class="hero">
-            <div class="hero-line"></div>
-            <span class="section-tag">Strategic Financial Architecture</span>
-            <h1 class="gold-gradient">Precision in Every Decision</h1>
-            <p>Institutional funding solutions for the world's most ambitious projects. We facilitate capital mobilization through Equity, Offshore Funding, and complex Financial Instruments.</p>
-            <div style="margin-bottom: 30px; font-weight: 700; letter-spacing: 2px;">DEPLOYMENT CAPABILITY: ₹1Cr — ₹500Cr+</div>
-            <a onclick="showPage('services')" class="btn">Initiate Consultation</a>
-        </section>
+    <section class="hero" id="home">
+        <span class="tag">Strategic Global Funding</span>
+        <h1>Precision in Every Decision</h1>
+        <p class="subtitle">We specialize in Equity Funding, Foreign Investment, and Financial Instruments to support large-scale developments and business expansion across the globe.</p>
+        <a href="#contact" class="hero-btn">Consult a Partner</a>
+    </section>
 
-        <section class="map-section">
-            <span class="section-tag">Global Footprint</span>
-            <h2 class="section-title">Bridging International Capital</h2>
-            <p style="max-width: 700px; margin: 0 auto 40px; color: var(--text-muted);">From the financial hubs of London and Dubai to the emerging markets of Asia, we connect high-value projects with the world’s most liquid pools of capital.</p>
-            <div class="map-container">
-                <div class="hotspot" style="top: 35%; left: 45%;" title="London Hub"></div>
-                <div class="hotspot" style="top: 55%; left: 65%;" title="Dubai Hub"></div>
-                <div class="hotspot" style="top: 65%; left: 75%;" title="Mumbai Head Office"></div>
-                <div class="hotspot" style="top: 60%; left: 85%;" title="Singapore Hub"></div>
-            </div>
-        </section>
+    <section class="metrics-grid">
+        <div class="metric-card"><h2>₹500Cr+</h2><p>Maximum Ticket Size</p></div>
+        <div class="metric-card"><h2>Global</h2><p>Investor Network</p></div>
+        <div class="metric-card"><h2>Secure</h2><p>Instrument Handling</p></div>
+        <div class="metric-card"><h2>Direct</h2><p>Offshore Access</p></div>
+    </section>
 
-        <section>
-            <span class="section-tag">Service Pillars</span>
-            <h2 class="section-title">Institutional Grade Expertise</h2>
-            <div class="grid-3">
-                <div class="card">
-                    <i class="fas fa-gem"></i>
-                    <h3>Equity Funding</h3>
-                    <p>Arranging large-scale equity investments for infrastructure, real estate, and hospitality sectors. We focus on long-term value creation.</p>
-                </div>
-                <div class="card">
-                    <i class="fas fa-globe"></i>
-                    <h3>Foreign Funding</h3>
-                    <p>Facilitating FDI and offshore funding solutions. We navigate complex cross-border regulations to secure competitive interest rates.</p>
-                </div>
-                <div class="card">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Bank Instruments</h3>
-                    <p>Facilitation of SBLC, LC, and Bank Guarantees through top-tier global banks to secure your trade and project cycles.</p>
-                </div>
-                <div class="card">
-                    <i class="fas fa-chart-pie"></i>
-                    <h3>Credit Lines</h3>
-                    <p>Structured credit line arrangements designed to provide the liquidity required for rapid business expansion and operational scaling.</p>
-                </div>
-                <div class="card">
-                    <i class="fas fa-building"></i>
-                    <h3>Real Estate Assets</h3>
-                    <p>Specialized funding for commercial towers, luxury hotels, and industrial parks with comprehensive deal structuring.</p>
-                </div>
-                <div class="card">
-                    <i class="fas fa-handshake"></i>
-                    <h3>Advisory</h3>
-                    <p>Beyond capital, we provide strategic financial advisory to optimize project feasibility and investor ROI.</p>
-                </div>
+    <section id="services">
+        <span class="tag">Our Expertise</span>
+        <h2 class="title">Comprehensive Capital Solutions</h2>
+        <div class="grid-3">
+            <div class="card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Equity Funding</h3>
+                <p>Strategic equity infusion for hospitality, real estate, and infrastructure. We connect projects with Private Equity and HNI syndicates.</p>
             </div>
-        </section>
-
-        <section style="background: var(--gold); color: #000; text-align: center; padding: 80px 10%;">
-            <h2 style="font-size: 3rem; margin-bottom: 20px;">Ready to Fund Your Vision?</h2>
-            <p style="font-size: 1.2rem; margin-bottom: 30px; font-weight: 600;">₹1 Crore to ₹500 Crore+ Project Financing Specialists.</p>
-            <a href="mailto:equinoxadvisoryco@gmail.com" class="btn" style="background: #000; color: var(--gold); border-color: #000;">Inquire Today</a>
-        </section>
-    </main>
-
-    <main id="about" class="page">
-        <section class="expertise-container">
-            <div class="expertise-text">
-                <span class="section-tag">Our Philosophy</span>
-                <h2 class="section-title">Legacy of Trust & Transparency</h2>
-                <p style="margin-bottom: 20px;">Equinox Advisory is a premier financial consultancy firm that operates on the bedrock of precision. We don't just find investors; we architect the financial structure that ensures a project's life-long success.</p>
-                <p style="color: var(--text-muted); margin-bottom: 30px;">Our team brings decades of combined experience in global markets, credit risk assessment, and equity structuring. We serve as the bridge for developers who require institutional-grade funding but face hurdles in traditional banking routes.</p>
-                
-                <div class="grid-3" style="grid-template-columns: 1fr 1fr;">
-                    <div><h4 style="color: var(--gold);">Our Vision</h4><p style="font-size: 0.9rem;">To be the premier global gateway for high-value structured finance.</p></div>
-                    <div><h4 style="color: var(--gold);">Our Mission</h4><p style="font-size: 0.9rem;">To simplify capital acquisition for complex, large-scale projects.</p></div>
-                </div>
+            <div class="card">
+                <i class="fas fa-globe"></i>
+                <h3>Foreign Investment</h3>
+                <p>Navigating FDI and offshore funding from UK, Dubai, and Singapore to lower the total cost of capital for your expansion.</p>
             </div>
-            <div class="expertise-image"></div>
-        </section>
-
-        <section style="background: #0f1115;">
-            <span class="section-tag">Operational Flow</span>
-            <h2 class="section-title">The Equinox Methodology</h2>
-            
-            <div class="step-row">
-                <div class="step-num">01</div>
-                <div class="step-content">
-                    <h4>Pre-Evaluation & Due Diligence</h4>
-                    <p>Every project undergoes a rigorous internal assessment to ensure feasibility and alignment with our global investor mandates.</p>
-                </div>
-            </div>
-            <div class="step-row">
-                <div class="step-num">02</div>
-                <div class="step-content">
-                    <h4>Financial Architecture</h4>
-                    <p>We design a custom mix of equity, debt, and instruments to lower the cost of capital and maximize project leverage.</p>
-                </div>
-            </div>
-            <div class="step-row">
-                <div class="step-num">03</div>
-                <div class="step-content">
-                    <h4>Investor Syndication</h4>
-                    <p>Leveraging our network in London, Dubai, and Singapore, we match your project with the right institutional or HNI partners.</p>
-                </div>
-            </div>
-            <div class="step-row">
-                <div class="step-num">04</div>
-                <div class="step-content">
-                    <h4>Closing & Disbursement</h4>
-                    <p>Our legal and financial team manages the documentation to ensure a secure, transparent, and rapid fund release.</p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <main id="services" class="page">
-        <section>
-            <div class="expertise-container">
-                <div class="expertise-text">
-                    <span class="section-tag">Direct Inquiry</span>
-                    <h2 class="section-title">Submit Your Project</h2>
-                    <p style="color: var(--text-muted); margin-bottom: 40px;">For projects ranging from ₹1 Crore to ₹500 Crore+, please provide initial details. All inquiries are treated with strict confidentiality.</p>
-                    
-                    <div style="margin-bottom: 20px;">
-                        <i class="fas fa-map-marker-alt" style="color: var(--gold); margin-right: 15px;"></i> C-722, Noida One, Sector 62, Noida
-                    </div>
-                    <div style="margin-bottom: 20px;">
-                        <i class="fas fa-phone" style="color: var(--gold); margin-right: 15px;"></i> +91 9319931155
-                    </div>
-                    <div style="margin-bottom: 40px;">
-                        <i class="fas fa-envelope" style="color: var(--gold); margin-right: 15px;"></i> equinoxadvisoryco@gmail.com
-                    </div>
-
-                    <h4 style="margin-bottom: 20px;">Frequently Asked Questions</h4>
-                    <div class="faq-item">
-                        <div class="faq-question">What is the minimum project value? <span>+</span></div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">Which countries do you cover? <span>+</span></div>
-                    </div>
-                </div>
-
-                <div class="expertise-text">
-                    <form style="background: var(--dark-card); padding: 40px; border: 1px solid #222;" id="projectForm">
-                        <div style="margin-bottom: 20px;">
-                            <label style="display: block; font-size: 0.8rem; color: var(--gold); margin-bottom: 5px;">FULL NAME</label>
-                            <input type="text" style="width: 100%; padding: 12px; background: #000; border: 1px solid #333; color: #fff;" required>
-                        </div>
-                        <div style="margin-bottom: 20px;">
-                            <label style="display: block; font-size: 0.8rem; color: var(--gold); margin-bottom: 5px;">EMAIL ADDRESS</label>
-                            <input type="email" style="width: 100%; padding: 12px; background: #000; border: 1px solid #333; color: #fff;" required>
-                        </div>
-                        <div style="margin-bottom: 20px;">
-                            <label style="display: block; font-size: 0.8rem; color: var(--gold); margin-bottom: 5px;">PROJECT VALUE (INR)</label>
-                            <select style="width: 100%; padding: 12px; background: #000; border: 1px solid #333; color: #fff;">
-                                <option>₹1Cr - ₹10Cr</option>
-                                <option>₹10Cr - ₹50Cr</option>
-                                <option>₹50Cr - ₹100Cr</option>
-                                <option>₹100Cr - ₹500Cr+</option>
-                            </select>
-                        </div>
-                        <div style="margin-bottom: 30px;">
-                            <label style="display: block; font-size: 0.8rem; color: var(--gold); margin-bottom: 5px;">PROJECT BRIEF</label>
-                            <textarea style="width: 100%; padding: 12px; background: #000; border: 1px solid #333; color: #fff;" rows="4"></textarea>
-                        </div>
-                        <button type="submit" class="btn" style="width: 100%;">Submit Formal Request</button>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-main">
-            <div>
-                <div class="logo footer-logo">Equinox <span>Advisory</span></div>
-                <p style="color: var(--text-muted);">A global powerhouse in structured project finance, facilitating capital from India's domestic markets to the world's major financial hubs.</p>
-            </div>
-            <div>
-                <h4 style="color: var(--gold); margin-bottom: 20px;">Solutions</h4>
-                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 10px;">Equity Funding</p>
-                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 10px;">Offshore Capital</p>
-                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 10px;">SBLC / BG Faciliation</p>
-            </div>
-            <div>
-                <h4 style="color: var(--gold); margin-bottom: 20px;">Office</h4>
-                <p style="color: var(--text-muted); font-size: 0.9rem;">C-722, Noida One,<br>Sector 62, Noida,<br>Uttar Pradesh, India</p>
+            <div class="card">
+                <i class="fas fa-file-invoice-dollar"></i>
+                <h3>Financial Instruments</h3>
+                <p>Facilitation of SBLC, Bank Guarantees (BG), and Letters of Credit (LC) for trade finance and project security.</p>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Equinox Advisory. Precision in Every Decision.</p>
-            <p>Keywords: equity funding india, project funding, sblc providers, bank guarantee india, foreign investment funding, real estate funding uk.</p>
+    </section>
+
+    <section class="dark-section">
+        <div class="reach-box">
+            <span class="tag">Regional Presence</span>
+            <h2 class="title">Global Connectivity</h2>
+            <div class="reach-grid">
+                <div class="reach-item">
+                    <h4>Middle East & UAE</h4>
+                    <p>Leveraging Dubai's liquid capital markets for rapid offshore funding and real estate investment.</p>
+                </div>
+                <div class="reach-item">
+                    <h4>United Kingdom & EU</h4>
+                    <p>Access to institutional grade debt and equity from the London financial district.</p>
+                </div>
+                <div class="reach-item">
+                    <h4>India & South Asia</h4>
+                    <p>Dominating the domestic landscape for infrastructure and high-value industrial projects.</p>
+                </div>
+                <div class="reach-item">
+                    <h4>South East Asia</h4>
+                    <p>Connecting with Singapore-based investment trusts for technological and manufacturing expansion.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="process">
+        <span class="tag">The Methodology</span>
+        <h2 class="title">A Structured Path to Capital</h2>
+        
+        <div class="process-step">
+            <div class="step-num">01</div>
+            <div class="step-body">
+                <h4>Mandate Evaluation</h4>
+                <p>We perform rigorous due diligence on project feasibility and document readiness before accepting a funding mandate.</p>
+            </div>
+        </div>
+        <div class="process-step">
+            <div class="step-num">02</div>
+            <div class="step-body">
+                <h4>Financial Architecture</h4>
+                <p>Our advisors design a custom funding mix—balancing equity, debt, and credit lines to optimize ROI for stakeholders.</p>
+            </div>
+        </div>
+        <div class="process-step">
+            <div class="step-num">03</div>
+            <div class="step-body">
+                <h4>Investor Matching</h4>
+                <p>We pitch your project to our private network of institutional lenders, offshore banks, and HNI groups.</p>
+            </div>
+        </div>
+        <div class="process-step">
+            <div class="step-num">04</div>
+            <div class="step-body">
+                <h4>Closing & Disbursement</h4>
+                <p>Finalizing legalities and facilitating the secure transfer of funds through verified banking channels.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="dark-section">
+        <div class="flex-box">
+            <div class="flex-text">
+                <span class="tag">Security First</span>
+                <h2 class="title">Secure & Transparent Process</h2>
+                <p>At Equinox Advisory, we prioritize the integrity of the transaction. Our expertise ensures that every high-value deal is executed within global compliance standards.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-shield-alt"></i> Verified Bank-to-Bank Communication</li>
+                    <li><i class="fas fa-search-dollar"></i> Rigorous Compliance & AML Standards</li>
+                    <li><i class="fas fa-user-check"></i> Direct Principal-to-Principal Interaction</li>
+                </ul>
+            </div>
+            <div class="flex-text" style="background: var(--bg-card); padding: 50px;">
+                <h3>Why Equinox?</h3>
+                <p>We provide more than just capital; we provide certainty. Our global investor network and deep understanding of financial instruments make us the partner of choice for transactions exceeding ₹100 Crore.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <span class="tag">Sectors We Empower</span>
+        <h2 class="title">Specialized Industry Coverage</h2>
+        <div class="industry-tags">
+            <div class="tag-box">Real Estate & Construction</div>
+            <div class="tag-box">Hotels & Hospitality</div>
+            <div class="tag-box">Infrastructure & Power</div>
+            <div class="tag-box">Manufacturing & Heavy Industry</div>
+            <div class="tag-box">Logistics & Warehousing</div>
+            <div class="tag-box">Healthcare Infrastructure</div>
+        </div>
+    </section>
+
+    <section class="dark-section">
+        <div class="section-header" style="text-align: center; margin-bottom: 50px;">
+            <span class="tag">Knowledge Base</span>
+            <h2 class="title">Frequently Asked Questions</h2>
+        </div>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <h5>What is the minimum project value you handle? <span>+</span></h5>
+            </div>
+            <div class="faq-item">
+                <h5>How long does the funding process usually take? <span>+</span></h5>
+            </div>
+            <div class="faq-item">
+                <h5>Do you provide funding for international projects? <span>+</span></h5>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="contact-grid">
+            <div class="contact-info">
+                <span class="tag">Contact Us</span>
+                <h2 class="title">Let’s Discuss Your Project</h2>
+                <div>
+                    <p><i class="fas fa-map-marker-alt"></i> C-722, Noida One, Sector 62, Noida</p>
+                </div>
+                <div>
+                    <p><i class="fas fa-phone"></i> +91 9319931155</p>
+                </div>
+                <div>
+                    <p><i class="fas fa-envelope"></i> equinoxadvisoryco@gmail.com</p>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form id="eForm">
+                    <input type="text" placeholder="Full Name" required>
+                    <input type="email" placeholder="Business Email" required>
+                    <input type="text" placeholder="Funding Amount Required (e.g. ₹50Cr)" required>
+                    <textarea rows="5" placeholder="Brief Description of Project"></textarea>
+                    <button type="submit" class="hero-btn" style="border: none; width: 100%;">Submit Formal Request</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="logo">Equinox <span>Advisory</span></div>
+        <p style="margin-top: 15px; color: #666;">&copy; 2026 Equinox Advisory. All Rights Reserved.</p>
+        <div class="footer-seo">
+            equity funding india | project funding | sblc providers | bank guarantee india | foreign investment funding | real estate funding uk | infrastructure finance | offshore debt
         </div>
     </footer>
 
     <script>
-        function showPage(pageId) {
-            // Hide all pages
-            const pages = document.querySelectorAll('.page');
-            pages.forEach(p => p.classList.remove('active'));
-
-            // Show current
-            document.getElementById(pageId).classList.add('active');
-            window.scrollTo({top: 0, behavior: 'smooth'});
-        }
-
-        document.getElementById('projectForm').addEventListener('submit', function(e) {
+        document.getElementById('eForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert("Your project summary has been received. Our senior partners will contact you within 48 hours for a discovery call.");
+            alert("Your project summary has been received. A senior advisor will contact you shortly.");
             this.reset();
         });
     </script>
