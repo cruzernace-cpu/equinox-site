@@ -3,119 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Equinox Advisory | Strategic Global Funding</title>
+    <title>Equinox Advisory | Institutional Global Funding</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --gold: #c5a059;
-            --gold-hover: #e0bc7a;
-            --dark-bg: #0f1113;
-            --card-bg: #1a1d21;
+            --gold-light: #e0bc7a;
+            --dark-base: #0a0b0d;
+            --dark-card: #14161a;
             --text-main: #ffffff;
-            --text-dim: #a0a0a0;
-            --white: #ffffff;
-            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --text-muted: #94a3b8;
+            --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', 'Segoe UI', sans-serif; }
-        body { background: var(--dark-bg); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--dark-base); color: var(--text-main); font-family: 'Inter', sans-serif; line-height: 1.6; overflow-x: hidden; }
 
-        /* --- Navigation --- */
+        /* Typography */
+        h1, h2, .logo { font-family: 'Cinzel', serif; }
+        .gold-gradient { background: linear-gradient(to right, #c5a059, #f9f295, #c5a059); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        /* Navigation */
         nav {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 20px 8%; background: rgba(15, 17, 19, 0.95);
-            position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #222;
+            padding: 25px 8%; background: rgba(10, 11, 13, 0.95);
+            position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+            backdrop-filter: blur(10px);
         }
-        .logo { font-size: 1.5rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; }
+        .logo { font-size: 1.4rem; font-weight: 700; letter-spacing: 2px; }
         .logo span { color: var(--gold); }
-        .nav-links { display: flex; list-style: none; gap: 40px; }
-        .nav-links a { 
-            color: var(--text-dim); text-decoration: none; font-size: 0.85rem; 
-            text-transform: uppercase; font-weight: 600; cursor: pointer; transition: var(--transition);
-        }
-        .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+        .nav-links { display: flex; list-style: none; gap: 35px; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; transition: var(--transition); cursor: pointer; }
+        .nav-links a:hover { color: var(--gold); letter-spacing: 1px; }
 
-        /* --- Global Components --- */
-        .page { display: none; animation: fadeIn 0.8s ease-out; }
+        /* Page Management */
+        .page { display: none; animation: slideUp 0.8s ease; }
         .page.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        
-        section { padding: 100px 10%; }
-        .section-title { font-size: 2.5rem; margin-bottom: 20px; text-align: center; color: var(--gold); }
-        .section-subtitle { text-align: center; color: var(--text-dim); max-width: 700px; margin: 0 auto 60px; font-size: 1.1rem; }
-        
-        .btn { 
-            padding: 15px 35px; border-radius: 4px; text-decoration: none; 
-            font-weight: 700; display: inline-block; transition: var(--transition);
-            border: none; cursor: pointer; text-transform: uppercase; font-size: 0.8rem;
-        }
-        .btn-gold { background: var(--gold); color: #000; }
-        .btn-gold:hover { background: var(--gold-hover); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(197, 160, 89, 0.2); }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* --- PAGE 1: HOME --- */
+        /* Hero */
         .hero {
-            height: 90vh; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-            url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80');
-            background-size: cover; background-position: center;
-            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+            height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; background: radial-gradient(circle at center, rgba(197, 160, 89, 0.05) 0%, transparent 70%);
+            padding: 0 10%;
         }
-        .hero h1 { font-size: 4rem; margin-bottom: 10px; letter-spacing: -1px; }
-        .hero p { font-size: 1.4rem; color: var(--gold); margin-bottom: 30px; font-weight: 300; }
-        .hero-stats { display: flex; gap: 50px; margin-top: 50px; }
-        .stat-item h3 { font-size: 2rem; color: var(--gold); }
-        .stat-item p { font-size: 0.9rem; color: var(--text-dim); }
+        .hero-line { width: 100px; height: 2px; background: var(--gold); margin-bottom: 20px; }
+        .hero h1 { font-size: 4.5rem; margin-bottom: 20px; line-height: 1.1; }
+        .hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 800px; margin-bottom: 40px; font-weight: 300; }
+        
+        .btn { padding: 18px 40px; background: var(--gold); color: #000; text-decoration: none; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; border-radius: 0; transition: var(--transition); border: 1px solid var(--gold); cursor: pointer; }
+        .btn:hover { background: transparent; color: var(--gold); transform: scale(1.05); }
 
-        /* --- PAGE 2: ABOUT (EXPANDED) --- */
-        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        .about-image { 
-            background: url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80');
-            height: 500px; background-size: cover; border-radius: 8px; border-left: 5px solid var(--gold);
-        }
-        .expertise-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 40px; }
-        .exp-card { background: var(--card-bg); padding: 30px; border-radius: 8px; transition: var(--transition); }
-        .exp-card:hover { border-top: 3px solid var(--gold); background: #23272d; }
-        .exp-card i { color: var(--gold); font-size: 2rem; margin-bottom: 15px; }
+        /* Section Styling */
+        section { padding: 120px 10%; }
+        .section-tag { color: var(--gold); font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; display: block; margin-bottom: 15px; }
+        .section-title { font-size: 3rem; margin-bottom: 40px; }
 
-        .process-flow { display: flex; justify-content: space-between; margin-top: 60px; position: relative; }
-        .process-step { text-align: center; flex: 1; z-index: 2; }
-        .step-num { 
-            width: 50px; height: 50px; background: var(--gold); color: #000; 
-            border-radius: 50%; display: flex; align-items: center; justify-content: center; 
-            font-weight: 800; margin: 0 auto 15px; 
-        }
+        /* Global Reach Map Section */
+        .map-section { background: #0f1115; text-align: center; }
+        .map-container { position: relative; margin-top: 50px; background: url('https://www.transparenttextures.com/patterns/world-map.png'); background-size: contain; background-repeat: no-repeat; height: 400px; opacity: 0.3; }
+        .hotspot { position: absolute; width: 10px; height: 10px; background: var(--gold); border-radius: 50%; box-shadow: 0 0 15px var(--gold); }
 
-        /* --- PAGE 3: SERVICES (EXPANDED) --- */
-        .service-detail-box { 
-            background: var(--card-bg); padding: 50px; border-radius: 12px; margin-bottom: 40px;
-            display: grid; grid-template-columns: 80px 1fr 300px; gap: 30px; align-items: center;
-        }
-        .service-detail-box i { font-size: 3.5rem; color: var(--gold); }
-        .service-detail-box h3 { font-size: 1.8rem; margin-bottom: 10px; }
-        .service-tags span { 
-            display: inline-block; padding: 5px 12px; background: rgba(197, 160, 89, 0.1); 
-            color: var(--gold); border-radius: 4px; font-size: 0.75rem; margin: 5px; border: 1px solid var(--gold);
-        }
+        /* Cards Layout */
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background: var(--dark-card); padding: 50px; border: 1px solid #222; transition: var(--transition); position: relative; overflow: hidden; }
+        .card::before { content: ""; position: absolute; top: 0; left: -100%; width: 100%; height: 2px; background: var(--gold); transition: var(--transition); }
+        .card:hover::before { left: 0; }
+        .card:hover { border-color: rgba(197, 160, 89, 0.4); transform: translateY(-5px); }
+        .card i { font-size: 2.5rem; color: var(--gold); margin-bottom: 25px; }
+        .card h3 { margin-bottom: 15px; font-family: 'Cinzel', serif; }
 
-        .contact-wrapper { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; margin-top: 50px; }
-        .contact-form { background: #23272d; padding: 40px; border-radius: 8px; }
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; margin-bottom: 8px; font-size: 0.9rem; color: var(--text-dim); }
-        .form-group input, .form-group textarea, .form-group select { 
-            width: 100%; padding: 12px; background: #111; border: 1px solid #333; color: white; border-radius: 4px;
-        }
+        /* Risk & Advisory Section (Expertise) */
+        .expertise-container { display: flex; gap: 60px; align-items: center; }
+        .expertise-text { flex: 1; }
+        .expertise-image { flex: 1; height: 500px; background: url('https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2070'); background-size: cover; border: 10px solid var(--dark-card); }
 
-        /* --- Footer --- */
-        footer { padding: 60px 10% 30px; background: #08090a; border-top: 1px solid #222; text-align: center; }
-        .footer-logo { font-size: 1.2rem; font-weight: 700; margin-bottom: 20px; }
-        .footer-links { display: flex; justify-content: center; gap: 30px; margin-bottom: 30px; color: var(--text-dim); }
-        .keywords { font-size: 0.7rem; color: #444; margin-top: 40px; }
+        /* Process Steps */
+        .step-row { display: flex; justify-content: space-between; border-top: 1px solid #222; padding: 40px 0; }
+        .step-num { color: var(--gold); font-weight: 800; font-size: 1.2rem; margin-right: 30px; }
+        .step-content { flex: 1; }
+        .step-content h4 { font-family: 'Cinzel', serif; font-size: 1.5rem; margin-bottom: 10px; }
 
-        /* Responsive */
-        @media (max-width: 992px) {
-            .about-grid, .contact-wrapper, .service-detail-box { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 2.5rem; }
-            .service-detail-box { text-align: center; }
-            .service-detail-box i { margin: 0 auto; }
+        /* FAQ Section */
+        .faq-item { background: var(--dark-card); margin-bottom: 10px; padding: 20px; cursor: pointer; border: 1px solid #222; }
+        .faq-question { display: flex; justify-content: space-between; align-items: center; font-weight: 600; }
+
+        /* Footer */
+        footer { padding: 100px 10% 40px; background: #050505; border-top: 1px solid #111; }
+        .footer-main { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 80px; margin-bottom: 60px; }
+        .footer-logo { font-size: 2rem; margin-bottom: 20px; }
+        .footer-bottom { border-top: 1px solid #111; padding-top: 30px; display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-muted); }
+
+        @media (max-width: 968px) {
+            .hero h1 { font-size: 2.8rem; }
+            .expertise-container, .footer-main { flex-direction: column; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
@@ -124,99 +107,124 @@
     <nav>
         <div class="logo">Equinox <span>Advisory</span></div>
         <ul class="nav-links">
-            <li><a onclick="showPage('home')" id="link-home" class="active">Home</a></li>
-            <li><a onclick="showPage('about')" id="link-about">The Firm</a></li>
-            <li><a onclick="showPage('services')" id="link-services">Solutions & Contact</a></li>
+            <li><a onclick="showPage('home')">Overview</a></li>
+            <li><a onclick="showPage('about')">The Firm</a></li>
+            <li><a onclick="showPage('services')">Capital Solutions</a></li>
         </ul>
     </nav>
 
     <main id="home" class="page active">
-        <header class="hero">
-            <h1>Precision in Every Decision</h1>
-            <p>Institutional Grade Funding & Strategic Advisory</p>
-            <a onclick="showPage('services')" class="btn btn-gold">Inquire for Funding</a>
-            
-            <div class="hero-stats">
-                <div class="stat-item"><h3>500Cr+</h3><p>Project Capability</p></div>
-                <div class="stat-item"><h3>Global</h3><p>Investor Network</p></div>
-                <div class="stat-item"><h3>Secure</h3><p>SBLC/LC Facilities</p></div>
+        <section class="hero">
+            <div class="hero-line"></div>
+            <span class="section-tag">Strategic Financial Architecture</span>
+            <h1 class="gold-gradient">Precision in Every Decision</h1>
+            <p>Institutional funding solutions for the world's most ambitious projects. We facilitate capital mobilization through Equity, Offshore Funding, and complex Financial Instruments.</p>
+            <div style="margin-bottom: 30px; font-weight: 700; letter-spacing: 2px;">DEPLOYMENT CAPABILITY: ₹1Cr — ₹500Cr+</div>
+            <a onclick="showPage('services')" class="btn">Initiate Consultation</a>
+        </section>
+
+        <section class="map-section">
+            <span class="section-tag">Global Footprint</span>
+            <h2 class="section-title">Bridging International Capital</h2>
+            <p style="max-width: 700px; margin: 0 auto 40px; color: var(--text-muted);">From the financial hubs of London and Dubai to the emerging markets of Asia, we connect high-value projects with the world’s most liquid pools of capital.</p>
+            <div class="map-container">
+                <div class="hotspot" style="top: 35%; left: 45%;" title="London Hub"></div>
+                <div class="hotspot" style="top: 55%; left: 65%;" title="Dubai Hub"></div>
+                <div class="hotspot" style="top: 65%; left: 75%;" title="Mumbai Head Office"></div>
+                <div class="hotspot" style="top: 60%; left: 85%;" title="Singapore Hub"></div>
             </div>
-        </header>
+        </section>
 
         <section>
-            <h2 class="section-title">Core Capital Solutions</h2>
-            <p class="section-subtitle">We bridge the gap between ambitious projects and sophisticated capital providers across the globe.</p>
-            <div class="expertise-cards">
-                <div class="exp-card">
-                    <i class="fas fa-city"></i>
-                    <h3>Real Estate</h3>
-                    <p>Equity and debt structuring for commercial, residential, and mixed-use developments.</p>
+            <span class="section-tag">Service Pillars</span>
+            <h2 class="section-title">Institutional Grade Expertise</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <i class="fas fa-gem"></i>
+                    <h3>Equity Funding</h3>
+                    <p>Arranging large-scale equity investments for infrastructure, real estate, and hospitality sectors. We focus on long-term value creation.</p>
                 </div>
-                <div class="exp-card">
-                    <i class="fas fa-hotel"></i>
-                    <h3>Hospitality</h3>
-                    <p>Funding for luxury hotel chains, resorts, and international hospitality ventures.</p>
+                <div class="card">
+                    <i class="fas fa-globe"></i>
+                    <h3>Foreign Funding</h3>
+                    <p>Facilitating FDI and offshore funding solutions. We navigate complex cross-border regulations to secure competitive interest rates.</p>
                 </div>
-                <div class="exp-card">
-                    <i class="fas fa-road"></i>
-                    <h3>Infrastructure</h3>
-                    <p>Capital mobilization for large-scale energy, transport, and industrial projects.</p>
+                <div class="card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Bank Instruments</h3>
+                    <p>Facilitation of SBLC, LC, and Bank Guarantees through top-tier global banks to secure your trade and project cycles.</p>
                 </div>
-                <div class="exp-card">
-                    <i class="fas fa-industry"></i>
-                    <h3>Manufacturing</h3>
-                    <p>Structured credit lines and project funding for industrial expansion.</p>
+                <div class="card">
+                    <i class="fas fa-chart-pie"></i>
+                    <h3>Credit Lines</h3>
+                    <p>Structured credit line arrangements designed to provide the liquidity required for rapid business expansion and operational scaling.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-building"></i>
+                    <h3>Real Estate Assets</h3>
+                    <p>Specialized funding for commercial towers, luxury hotels, and industrial parks with comprehensive deal structuring.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Advisory</h3>
+                    <p>Beyond capital, we provide strategic financial advisory to optimize project feasibility and investor ROI.</p>
                 </div>
             </div>
+        </section>
+
+        <section style="background: var(--gold); color: #000; text-align: center; padding: 80px 10%;">
+            <h2 style="font-size: 3rem; margin-bottom: 20px;">Ready to Fund Your Vision?</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 30px; font-weight: 600;">₹1 Crore to ₹500 Crore+ Project Financing Specialists.</p>
+            <a href="mailto:equinoxadvisoryco@gmail.com" class="btn" style="background: #000; color: var(--gold); border-color: #000;">Inquire Today</a>
         </section>
     </main>
 
     <main id="about" class="page">
-        <section>
-            <div class="about-grid">
-                <div class="about-image"></div>
-                <div>
-                    <h2 style="color: var(--gold); font-size: 2.5rem; margin-bottom: 20px;">Redefining Financial Architecture</h2>
-                    <p style="color: var(--text-dim); margin-bottom: 20px;">Equinox Advisory is a premier financial consultancy firm specializing in high-value funding and complex financial structuring. We operate at the intersection of local project needs and global liquidity.</p>
-                    <p>Our firm was built on the principle that large-scale development requires more than just capital—it requires a partner who understands the intricacies of <strong>Foreign Direct Investment (FDI)</strong> and <strong>Financial Instruments</strong>.</p>
-                    
-                    <div class="expertise-cards">
-                        <div class="exp-card">
-                            <h3>Vision</h3>
-                            <p>To be the world’s most trusted bridge for structured project finance.</p>
-                        </div>
-                        <div class="exp-card">
-                            <h3>Mission</h3>
-                            <p>Connecting high-potential projects with ethical, high-capacity investors.</p>
-                        </div>
-                    </div>
+        <section class="expertise-container">
+            <div class="expertise-text">
+                <span class="section-tag">Our Philosophy</span>
+                <h2 class="section-title">Legacy of Trust & Transparency</h2>
+                <p style="margin-bottom: 20px;">Equinox Advisory is a premier financial consultancy firm that operates on the bedrock of precision. We don't just find investors; we architect the financial structure that ensures a project's life-long success.</p>
+                <p style="color: var(--text-muted); margin-bottom: 30px;">Our team brings decades of combined experience in global markets, credit risk assessment, and equity structuring. We serve as the bridge for developers who require institutional-grade funding but face hurdles in traditional banking routes.</p>
+                
+                <div class="grid-3" style="grid-template-columns: 1fr 1fr;">
+                    <div><h4 style="color: var(--gold);">Our Vision</h4><p style="font-size: 0.9rem;">To be the premier global gateway for high-value structured finance.</p></div>
+                    <div><h4 style="color: var(--gold);">Our Mission</h4><p style="font-size: 0.9rem;">To simplify capital acquisition for complex, large-scale projects.</p></div>
                 </div>
             </div>
+            <div class="expertise-image"></div>
         </section>
 
-        <section style="background: #111;">
-            <h2 class="section-title">Our Structured Approach</h2>
-            <p class="section-subtitle">A methodical 4-step process designed for transparency and speed.</p>
-            <div class="process-flow">
-                <div class="process-step">
-                    <div class="step-num">01</div>
-                    <h4>Project Evaluation</h4>
-                    <p style="font-size: 0.8rem; color: var(--text-dim);">Strict due diligence and viability assessment.</p>
+        <section style="background: #0f1115;">
+            <span class="section-tag">Operational Flow</span>
+            <h2 class="section-title">The Equinox Methodology</h2>
+            
+            <div class="step-row">
+                <div class="step-num">01</div>
+                <div class="step-content">
+                    <h4>Pre-Evaluation & Due Diligence</h4>
+                    <p>Every project undergoes a rigorous internal assessment to ensure feasibility and alignment with our global investor mandates.</p>
                 </div>
-                <div class="process-step">
-                    <div class="step-num">02</div>
-                    <h4>Financial Structuring</h4>
-                    <p style="font-size: 0.8rem; color: var(--text-dim);">Optimizing debt-to-equity ratios for maximum yield.</p>
+            </div>
+            <div class="step-row">
+                <div class="step-num">02</div>
+                <div class="step-content">
+                    <h4>Financial Architecture</h4>
+                    <p>We design a custom mix of equity, debt, and instruments to lower the cost of capital and maximize project leverage.</p>
                 </div>
-                <div class="process-step">
-                    <div class="step-num">03</div>
-                    <h4>Investor Matchmaking</h4>
-                    <p style="font-size: 0.8rem; color: var(--text-dim);">Presenting to our network in UK, Dubai, and Singapore.</p>
+            </div>
+            <div class="step-row">
+                <div class="step-num">03</div>
+                <div class="step-content">
+                    <h4>Investor Syndication</h4>
+                    <p>Leveraging our network in London, Dubai, and Singapore, we match your project with the right institutional or HNI partners.</p>
                 </div>
-                <div class="process-step">
-                    <div class="step-num">04</div>
-                    <h4>Deal Execution</h4>
-                    <p style="font-size: 0.8rem; color: var(--text-dim);">Finalizing legalities and fund disbursement.</p>
+            </div>
+            <div class="step-row">
+                <div class="step-num">04</div>
+                <div class="step-content">
+                    <h4>Closing & Disbursement</h4>
+                    <p>Our legal and financial team manages the documentation to ensure a secure, transparent, and rapid fund release.</p>
                 </div>
             </div>
         </section>
@@ -224,90 +232,55 @@
 
     <main id="services" class="page">
         <section>
-            <h2 class="section-title">Institutional Solutions</h2>
-            <p class="section-subtitle">Comprehensive financial services ranging from ₹1 Crore to ₹500 Crore+.</p>
-
-            <div class="service-detail-box">
-                <i class="fas fa-coins"></i>
-                <div>
-                    <h3>Equity & Project Funding</h3>
-                    <p>Direct equity infusion for Greenfield and Brownfield projects. We connect you with Private Equity (PE) firms and High Net Worth Individuals (HNIs).</p>
-                </div>
-                <div class="service-tags">
-                    <span>Institutional Capital</span> <span>Private Equity</span> <span>Strategic Partners</span>
-                </div>
-            </div>
-
-            <div class="service-detail-box">
-                <i class="fas fa-landmark"></i>
-                <div>
-                    <h3>Foreign Investment (Offshore)</h3>
-                    <p>Leveraging cross-border capital from financial hubs like London and Dubai. Ideal for projects seeking lower cost of capital and international exposure.</p>
-                </div>
-                <div class="service-tags">
-                    <span>FDI Advisory</span> <span>Offshore Loans</span> <span>UK Capital</span>
-                </div>
-            </div>
-
-            <div class="service-detail-box">
-                <i class="fas fa-file-contract"></i>
-                <div>
-                    <h3>Financial Instruments</h3>
-                    <p>Facilitation of critical trade and project instruments. We assist in the issuance and verification of bank-backed guarantees.</p>
-                </div>
-                <div class="service-tags">
-                    <span>SBLC</span> <span>Bank Guarantee</span> <span>Letter of Credit</span>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact-form-section" style="background: #111;">
-            <div class="contact-wrapper">
-                <div>
-                    <h2 style="color: var(--gold);">Get In Touch</h2>
-                    <p style="margin-bottom: 30px;">Speak with a senior advisor today regarding your project requirements.</p>
+            <div class="expertise-container">
+                <div class="expertise-text">
+                    <span class="section-tag">Direct Inquiry</span>
+                    <h2 class="section-title">Submit Your Project</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 40px;">For projects ranging from ₹1 Crore to ₹500 Crore+, please provide initial details. All inquiries are treated with strict confidentiality.</p>
                     
                     <div style="margin-bottom: 20px;">
-                        <p><i class="fas fa-map-marker-alt" style="color: var(--gold); margin-right: 10px;"></i> C-722, Noida One, Sector 62, Noida</p>
+                        <i class="fas fa-map-marker-alt" style="color: var(--gold); margin-right: 15px;"></i> C-722, Noida One, Sector 62, Noida
                     </div>
                     <div style="margin-bottom: 20px;">
-                        <p><i class="fas fa-phone" style="color: var(--gold); margin-right: 10px;"></i> +91 9319931155</p>
+                        <i class="fas fa-phone" style="color: var(--gold); margin-right: 15px;"></i> +91 9319931155
                     </div>
-                    <div>
-                        <p><i class="fas fa-envelope" style="color: var(--gold); margin-right: 10px;"></i> equinoxadvisoryco@gmail.com</p>
+                    <div style="margin-bottom: 40px;">
+                        <i class="fas fa-envelope" style="color: var(--gold); margin-right: 15px;"></i> equinoxadvisoryco@gmail.com
+                    </div>
+
+                    <h4 style="margin-bottom: 20px;">Frequently Asked Questions</h4>
+                    <div class="faq-item">
+                        <div class="faq-question">What is the minimum project value? <span>+</span></div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Which countries do you cover? <span>+</span></div>
                     </div>
                 </div>
 
-                <div class="contact-form">
-                    <form id="mainForm">
-                        <div class="grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                            <div class="form-group">
-                                <label>Full Name</label>
-                                <input type="text" placeholder="John Doe" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Company Name</label>
-                                <input type="text" placeholder="Corporation Ltd.">
-                            </div>
+                <div class="expertise-text">
+                    <form style="background: var(--dark-card); padding: 40px; border: 1px solid #222;" id="projectForm">
+                        <div style="margin-bottom: 20px;">
+                            <label style="display: block; font-size: 0.8rem; color: var(--gold); margin-bottom: 5px;">FULL NAME</label>
+                            <input type="text" style="width: 100%; padding: 12px; background: #000; border: 1px solid #333; color: #fff;" required>
                         </div>
-                        <div class="form-group">
-                            <label>Email Address</label>
-                            <input type="email" placeholder="email@example.com" required>
+                        <div style="margin-bottom: 20px;">
+                            <label style="display: block; font-size: 0.8rem; color: var(--gold); margin-bottom: 5px;">EMAIL ADDRESS</label>
+                            <input type="email" style="width: 100%; padding: 12px; background: #000; border: 1px solid #333; color: #fff;" required>
                         </div>
-                        <div class="form-group">
-                            <label>Required Funding Amount</label>
-                            <select>
+                        <div style="margin-bottom: 20px;">
+                            <label style="display: block; font-size: 0.8rem; color: var(--gold); margin-bottom: 5px;">PROJECT VALUE (INR)</label>
+                            <select style="width: 100%; padding: 12px; background: #000; border: 1px solid #333; color: #fff;">
                                 <option>₹1Cr - ₹10Cr</option>
                                 <option>₹10Cr - ₹50Cr</option>
                                 <option>₹50Cr - ₹100Cr</option>
                                 <option>₹100Cr - ₹500Cr+</option>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <label>Project Brief</label>
-                            <textarea rows="5" placeholder="Tell us about your project..."></textarea>
+                        <div style="margin-bottom: 30px;">
+                            <label style="display: block; font-size: 0.8rem; color: var(--gold); margin-bottom: 5px;">PROJECT BRIEF</label>
+                            <textarea style="width: 100%; padding: 12px; background: #000; border: 1px solid #333; color: #fff;" rows="4"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-gold" style="width: 100%;">Submit Formal Request</button>
+                        <button type="submit" class="btn" style="width: 100%;">Submit Formal Request</button>
                     </form>
                 </div>
             </div>
@@ -315,37 +288,42 @@
     </main>
 
     <footer>
-        <div class="footer-logo">Equinox <span>Advisory</span></div>
-        <div class="footer-links">
-            <a onclick="showPage('home')">Home</a>
-            <a onclick="showPage('about')">The Firm</a>
-            <a onclick="showPage('services')">Solutions</a>
+        <div class="footer-main">
+            <div>
+                <div class="logo footer-logo">Equinox <span>Advisory</span></div>
+                <p style="color: var(--text-muted);">A global powerhouse in structured project finance, facilitating capital from India's domestic markets to the world's major financial hubs.</p>
+            </div>
+            <div>
+                <h4 style="color: var(--gold); margin-bottom: 20px;">Solutions</h4>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 10px;">Equity Funding</p>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 10px;">Offshore Capital</p>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 10px;">SBLC / BG Faciliation</p>
+            </div>
+            <div>
+                <h4 style="color: var(--gold); margin-bottom: 20px;">Office</h4>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">C-722, Noida One,<br>Sector 62, Noida,<br>Uttar Pradesh, India</p>
+            </div>
         </div>
-        <p style="font-size: 0.8rem; color: #555;">&copy; 2026 Equinox Advisory. All Rights Reserved. Private & Confidential.</p>
-        <div class="keywords">
-            equity funding india | project funding | sblc providers | bank guarantee india | foreign investment funding | real estate funding uk
+        <div class="footer-bottom">
+            <p>&copy; 2026 Equinox Advisory. Precision in Every Decision.</p>
+            <p>Keywords: equity funding india, project funding, sblc providers, bank guarantee india, foreign investment funding, real estate funding uk.</p>
         </div>
     </footer>
 
     <script>
         function showPage(pageId) {
-            // Update Active Link State
-            const links = document.querySelectorAll('.nav-links a');
-            links.forEach(link => link.classList.remove('active'));
-            document.getElementById('link-' + pageId).classList.add('active');
-
-            // Switch Pages
+            // Hide all pages
             const pages = document.querySelectorAll('.page');
-            pages.forEach(page => page.classList.remove('active'));
-            document.getElementById(pageId).classList.add('active');
+            pages.forEach(p => p.classList.remove('active'));
 
-            // Scroll to top smoothly
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            // Show current
+            document.getElementById(pageId).classList.add('active');
+            window.scrollTo({top: 0, behavior: 'smooth'});
         }
 
-        document.getElementById('mainForm').addEventListener('submit', function(e) {
+        document.getElementById('projectForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert("Application Submitted. A senior partner will review your details and reach out within 24-48 business hours.");
+            alert("Your project summary has been received. Our senior partners will contact you within 48 hours for a discovery call.");
             this.reset();
         });
     </script>
